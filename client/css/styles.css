@@ -1,0 +1,36 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.boxy {
+  height: 100vh;
+  width: 100vw;
+
+  background-color: white;
+  background-image:
+      /* Top jagged */
+      linear-gradient(135deg, pink 0%, pink 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%),
+      linear-gradient(-135deg, pink 0%, pink 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%),
+      /* Bottom jagged */
+      linear-gradient(45deg, pink 0%, pink 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%),
+      linear-gradient(-45deg, pink 0%, pink 50%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 100%),
+      /* Top and bottom fade  */
+      linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 100%),
+      linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 100%);
+  background-position:
+      /* Top jagged */
+      top center, top center,
+      /* Bottom jagged */
+      bottom center, bottom center,
+      /* Top fade */
+      top center,
+      /* Bottom fade */
+      bottom center;
+  background-size:
+      /* Top + bottom jagged */
+      0.75rem 0.75rem, 0.75rem 0.75rem, 0.75rem 0.75rem, 0.75rem 0.75rem,
+      /* Top + bottom fade */
+      100% 1rem, 100% 1rem;
+  background-repeat: repeat-x;
+}
