@@ -1,16 +1,18 @@
 import React from 'react'
-import { Match } from 'react-router'
-import { Provider } from 'react-redux'
+// import { Match } from 'react-router'
+// import { Provider } from 'react-redux'
 import Reader from './Reader'
-import store from './store'
+// import store from './store'
+// import { HashRouter } from 'react-router'
 
 const App = React.createClass({
   render () {
-    <Provider store={store}>
+    return (
       <div className='app'>
-        <Match exactly pattern='/' component={Reader} />
+        <h1>I am APPPPP</h1>
+        <Reader />
       </div>
-    </Provider>
+    )
   }
 })
 

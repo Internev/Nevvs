@@ -1,7 +1,13 @@
 import React from 'react'
 
-export default class Feedlist extends React.Component {
+const Feedlist = React.createClass({
   render () {
-    return <h1>I am feedlist</h1>
+    return (
+      <div className='feedlist'>
+        <h1>I am feedlist</h1>
+      </div>
+    )
   }
-}
+})
+
+export default Feedlist
