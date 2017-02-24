@@ -3,6 +3,39 @@ html, body {
   padding: 0;
 }
 
+.reader {
+  border: 1px solid powderblue;
+  display: flex;
+  flex-direction: column;
+}
+
+.feeds {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex: 6 100%;
+}
+
+.feed-list {
+  border: 1px dashed white;
+  background-color: lightpink;
+  order: 1;
+  flex-grow: 1;
+}
+
+.feed-display {
+  border: 1px dashed white;
+  background-color: thistle;
+  order: 2;
+  flex-grow: 4;
+}
+
+.header {
+  border: 1px dashed white;
+  background-color: aquamarine;
+  flex: 1 100%;
+}
 /*.boxy {
   height: 100vh;
   width: 100vw;

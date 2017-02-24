@@ -1,13 +1,13 @@
 import React from 'react'
 
-const Feedlist = React.createClass({
+const FeedList = React.createClass({
   render () {
     return (
-      <div className='feedlist'>
+      <div className='feed-list'>
         <h1>I am feedlist</h1>
       </div>
     )
   }
 })
 
-export default Feedlist
+export default FeedList
