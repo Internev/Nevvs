@@ -3,38 +3,38 @@ html, body {
   padding: 0;
 }
 
-.reader {
-  border: 1px solid powderblue;
+.app {
+  height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
 .feeds {
+  flex: 40;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: stretch;
-  flex: 6 100%;
 }
 
 .feed-list {
+  flex: 1;
+  order: 1;
   border: 1px dashed white;
   background-color: lightpink;
-  order: 1;
-  flex-grow: 1;
 }
 
 .feed-display {
+  flex: 5;
+  order: 2;
   border: 1px dashed white;
   background-color: thistle;
-  order: 2;
-  flex-grow: 4;
 }
 
 .header {
+  flex: 1;
   border: 1px dashed white;
   background-color: aquamarine;
-  flex: 1 100%;
 }
 /*.boxy {
   height: 100vh;

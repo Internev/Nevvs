@@ -21831,11 +21831,7 @@ var Header = _react2.default.createClass({
     return _react2.default.createElement(
       'div',
       { className: 'header' },
-      _react2.default.createElement(
-        'h1',
-        null,
-        'I am Header'
-      )
+      'I am Header'
     );
   }
 });
