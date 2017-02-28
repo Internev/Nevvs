@@ -9,6 +9,14 @@ const Header = React.createClass({
     this.props.dispatch(addFeed(feed))
     this.refs.feedField.value = ''
   },
+  OPMLUpload (e) {
+    // console.log(e.target.files[0])
+    let reader = new FileReader()
+    reader.onload = (e) => {
+      console.log(e.target.result)
+    }
+    reader.readAsText(e.target.files[0])
+  },
   render () {
     return (
       <div className='header'>
@@ -16,6 +24,7 @@ const Header = React.createClass({
           <input type='text' ref='feedField' />
           <input type='submit' value='Add Feed' />
         </form>
+          OPML Subscription Upload: <input type='file' accept='.xml' onChange={this.OPMLUpload} />
       </div>
     )
   }
