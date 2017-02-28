@@ -1,5 +1,5 @@
 import React from 'react'
-import { addFeed } from './actionCreators'
+import { addFeed, importFeeds } from './actionCreators'
 import { connect } from 'react-redux'
 import { OPMLParse } from './OPMLParse'
 
@@ -13,8 +13,7 @@ const Header = React.createClass({
   OPMLUpload (e) {
     let reader = new FileReader()
     reader.onload = (file) => {
-      let xml = file.target.result
-      OPMLParse(xml)
+      this.props.dispatch(importFeeds(OPMLParse(file.target.result)))
     }
     reader.readAsText(e.target.files[0])
   },

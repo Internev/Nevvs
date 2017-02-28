@@ -6,7 +6,7 @@ const FeedList = React.createClass({
     const listItems = this.props.feeds.map(feed => {
       return (
         <div key={feed.id}>
-          {feed.name}
+          {feed.title}
         </div>
       )
     })
