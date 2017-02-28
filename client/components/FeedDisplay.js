@@ -1,25 +1,27 @@
 import React from 'react'
-import axios from 'axios'
+import { connect } from 'react-redux'
+import Post from './Post'
 
 const FeedDisplay = React.createClass({
-  reqTest () {
-    let obj = {'site': 'http://boingboing.net/feed'}
-    axios.post('/internev', obj)
-      .then(res => {
-        console.log(res)
-      })
-      .catch(err => {
-        console.error(err)
-      })
+  componentDidUpdate () {
+    console.log(this.props)
   },
   render () {
-    return (
+    return !this.props.activeFeed.posts[0]
+    ? (<div className='feed-display' />)
+    : (
       <div className='feed-display'>
-        <h1>I am Feed Display</h1>
-        <button onClick={this.reqTest}>Request a thing</button>
+        <h1>{this.props.activeFeed.feed}</h1>
+        <Post post={this.props.activeFeed.posts[0]} />
       </div>
     )
   }
 })
 
-export default FeedDisplay
+const mapStateToProps = (state) => {
+  return {
+    activeFeed: state.activeFeed
+  }
+}
+
+export default connect(mapStateToProps)(FeedDisplay)

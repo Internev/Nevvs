@@ -22,6 +22,7 @@ html, body {
   order: 1;
   border: 1px dashed white;
   background-color: lightpink;
+  overflow-x: hidden;
 }
 
 .feed-display {
@@ -35,26 +36,4 @@ html, body {
   flex: 1;
   border: 1px dashed white;
   background-color: aquamarine;
-}
-
-.btn {
-  background: #34d9c3;
-  background-image: -webkit-linear-gradient(top, #34d9c3, #2bb895);
-  background-image: -moz-linear-gradient(top, #34d9c3, #2bb895);
-  background-image: -ms-linear-gradient(top, #34d9c3, #2bb895);
-  background-image: -o-linear-gradient(top, #34d9c3, #2bb895);
-  background-image: linear-gradient(to bottom, #34d9c3, #2bb895);
-  -webkit-border-radius: 9;
-  -moz-border-radius: 9;
-  border-radius: 9px;
-  font-family: Arial;
-  color: #ffffff;
-  font-size: 20px;
-  padding: 10px 20px 10px 20px;
-  text-decoration: none;
-}
-
-.btn:hover {
-  background: #3cfce2;
-  text-decoration: none;
 }

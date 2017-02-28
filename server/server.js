@@ -8,5 +8,5 @@ let app = express()
 app
   .use(express.static(path.join(__dirname, '../client')))
   .use(bodyParser.json())
-  .post('/internev', getFeed)
+  .post('/getFeed', getFeed)
   .listen(3000, () => { console.log('Server listening on 3k.') })

@@ -1,8 +1,12 @@
-import { ADD_FEED, IMPORT_FEEDS } from './actions'
+import { ADD_FEED, IMPORT_FEEDS, SHOW_FEED } from './actions'
 import { getIndex } from './feedIndex'
 
 const DEFAULT_STATE = {
-  feeds: []
+  feeds: [],
+  activeFeed: {
+    feed: '',
+    posts: []
+  }
 }
 
 const addFeed = (state, action) => {
@@ -14,9 +18,19 @@ const addFeed = (state, action) => {
 }
 
 const importFeeds = (state, action) => {
-  const newFeed = [...state.feeds, ...action.feeds]
+  const newFeeds = [...state.feeds, ...action.feeds]
   const newState = {}
-  Object.assign(newState, state, {feeds: newFeed})
+  Object.assign(newState, state, {feeds: newFeeds})
+  return newState
+}
+
+const showFeed = (state, action) => {
+  const newActiveFeed = {
+    feed: action.feed,
+    posts: action.posts
+  }
+  const newState = {}
+  Object.assign(newState, state, {activeFeed: newActiveFeed})
   return newState
 }
 
@@ -26,6 +40,8 @@ const rootReducer = (state = DEFAULT_STATE, action) => {
       return addFeed(state, action)
     case IMPORT_FEEDS:
       return importFeeds(state, action)
+    case SHOW_FEED:
+      return showFeed(state, action)
     default:
       return state
   }

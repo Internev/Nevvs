@@ -1,12 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { getFeed } from './actionCreators'
 
 const FeedList = React.createClass({
+  handleFeedClick (url) {
+    this.props.dispatch(getFeed(url))
+  },
   render () {
     const listItems = this.props.feeds.map(feed => {
       return (
         <div key={feed.id}>
-          {feed.title}
+          <a href='#' onClick={() => this.handleFeedClick(feed.xmlUrl)}>{feed.title}</a>
         </div>
       )
     })
