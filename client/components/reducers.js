@@ -12,15 +12,13 @@ const DEFAULT_STATE = {
 const addFeed = (state, action) => {
   action.feed.id = getIndex()
   const newFeed = [...state.feeds, action.feed]
-  const newState = {}
-  Object.assign(newState, state, {feeds: newFeed})
+  const newState = {...state, ...{feeds: newFeed}}
   return newState
 }
 
 const importFeeds = (state, action) => {
   const newFeeds = [...state.feeds, ...action.feeds]
-  const newState = {}
-  Object.assign(newState, state, {feeds: newFeeds})
+  const newState = {...state, ...{feeds: newFeeds}}
   return newState
 }
 
@@ -29,8 +27,7 @@ const showFeed = (state, action) => {
     feed: action.feed,
     posts: action.posts
   }
-  const newState = {}
-  Object.assign(newState, state, {activeFeed: newActiveFeed})
+  const newState = {...state, ...{activeFeed: newActiveFeed}}
   return newState
 }
 
