@@ -5,11 +5,12 @@ const Post = React.createClass({
     console.log('Post props:', this.props)
   },
   render () {
+    const { post } = this.props
     return (
       <div className='post'>
-        <h3>{this.props.post.title}</h3>
+        <h3>{post.title}</h3>
         <div className='post-content'>
-          {this.props.post.contentSnippet}
+          {post.contentSnippet}
         </div>
       </div>
     )

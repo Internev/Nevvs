@@ -7,12 +7,13 @@ const FeedDisplay = React.createClass({
     console.log(this.props)
   },
   render () {
-    return !this.props.activeFeed.posts[0]
+    const { activeFeed } = this.props
+    return !activeFeed.posts[0]
     ? (<div className='feed-display' />)
     : (
       <div className='feed-display'>
-        <h1>{this.props.activeFeed.feed}</h1>
-        <Post post={this.props.activeFeed.posts[0]} />
+        <h1>{activeFeed.feed}</h1>
+        <Post post={activeFeed.posts[0]} />
       </div>
     )
   }
