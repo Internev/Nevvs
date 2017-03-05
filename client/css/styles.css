@@ -36,4 +36,18 @@ html, body {
   flex: 1;
   border: 1px dashed white;
   background-color: aquamarine;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 5px;
+}
+
+.add-feed {
+}
+
+.opml-upload {
+}
+
+.auth {
+  margin-left: auto;
 }

@@ -2,6 +2,7 @@ import React from 'react'
 import { addFeed, importFeeds } from './actionCreators'
 import { connect } from 'react-redux'
 import { OPMLParse } from './OPMLParse'
+import Auth from './Auth'
 
 const Header = React.createClass({
   handleFeedSubmit (e) {
@@ -20,11 +21,16 @@ const Header = React.createClass({
   render () {
     return (
       <div className='header'>
-        <form onSubmit={this.handleFeedSubmit}>
-          <input type='text' ref='feedField' />
-          <input type='submit' value='Add Feed' />
-        </form>
+        <div className='add-feed'>
+          <form onSubmit={this.handleFeedSubmit}>
+            <input type='text' ref='feedField' />
+            <input type='submit' value='Add Feed' />
+          </form>
+        </div>
+        <div className='opml-upload'>
           OPML Subscription Upload: <input type='file' accept='.xml' onChange={this.OPMLUpload} />
+        </div>
+        <Auth />
       </div>
     )
   }
