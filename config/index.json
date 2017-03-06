@@ -1,0 +1,4 @@
+{
+  "dbUri": "mongodb://localhost/nevvs",
+  "jwtSecret": "Bees in the what now?"
+}
