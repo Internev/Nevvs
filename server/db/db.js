@@ -5,7 +5,7 @@ const connect = (uri) => {
   mongoose.connect(uri)
   mongoose.connection.on('error', err => {
     console.error('Mongoose error:', err)
-    process.exit(1)
+    // process.exit(1)
   })
 }
 
@@ -21,20 +21,22 @@ UserSchema.methods.comparePassword = (password, cb) => {
   bcrypt.compare(password, this.password, cb)
 }
 
-UserSchema.pre('save', next => {
-  if (!this.isModified('password')) return next()
+// UserSchema.pre('save', next => {
+//   if (!this.isModified('password')) return next()
+//
+//   return bcrypt.genSalt((saltError, salt) => {
+//     if (saltError) return next(saltError)
+//
+//     return bcrypt.hash(this.password, salt, (hashError, hash) => {
+//       if (hashError) return next(hashError)
+//       this.password = hash
+//
+//       return next()
+//     })
+//   })
+// })
 
-  return bcrypt.genSalt((saltError, salt) => {
-    if (saltError) return next(saltError)
-
-    return bcrypt.hash(this.password, salt, (hashError, hash) => {
-      if (hashError) return next(hashError)
-      this.password = hash
-
-      return next()
-    })
-  })
-})
+const User = mongoose.model('User', UserSchema)
 
 module.exports.connect = connect
-module.exports.User = mongoose.model('User', UserSchema)
+module.exports.User = User
