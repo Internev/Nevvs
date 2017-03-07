@@ -1,24 +1,47 @@
-const { dbUri } = require('../../config')
-const db = require('./db')
+const { db, User } = require('./db')
 
-db.connect('mongodb://localhost/nevvstest')
+let feedlist = {
+  text: 'Testfeed',
+  title: 'Testfeed',
+  type: 'rss',
+  xmlUrl: 'http://internev.com/feed/',
+  htmlUrl: 'http://internev.com/'
+}
 
 describe('db', () => {
-  it('should should have a User schema', () => {
-    expect(db.User).toBeDefined()
-  })
-  it('should write to db', () => {
-    let newUser = new db.User({email: 'test@eagle.com', password: 'squawk!'})
-    db.User.count({email: 'test@eagle.com'}, (err, count) => {
-      expect(count).toBe(1)
+  User.sync({force: true})
+  .then(() => {
+    return User.create({
+      email: 'test@eagle.com',
+      password: 'hush',
+      feeds: JSON.stringify(feedlist)
     })
   })
-  it('should remove from db', () => {
-    db.User.remove({email: 'test@eagle.com'}, err => {
-      if (err) console.error('removal error', err)
-    })
-    db.User.count({email: 'test@eagle.com'}, (err, count) => {
-      expect(count).toBe(0)
-    })
+  .then(() => {
+    User.findAll()
+      .then(users => {
+        it('should write to db', () =>{
+          expect(users[0].email).toBe('test@eagle.com')
+        })
+      })
+  })
+  .then(() => {
+    User.findOne({email: 'test@eagle.com'})
+      .then(user => {
+        it('should find one in db', () => {
+          expect(user.email).toBe('test@eagle.com')
+        })
+      })
+  })
+  .then(() => {
+    User.destroy({where: {email: 'test@eagle.com'}})
+  })
+  .then(() => {
+    User.findAll()
+      .then(users => {
+        it('should write to db', () =>{
+          expect(users.length).toBe(0)
+        })
+      })
   })
 })

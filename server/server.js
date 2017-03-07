@@ -6,10 +6,8 @@ const passport = require('passport')
 // const localSignupStrategy = require('./passport/local-signup')
 // const localLoginStrategy = require('./passport/local-login')
 // const authRoutes = require('./passport/authRoutes')
-const { dbUri } = require('../config')
-const db = require('./db/db')
-
-db.connect(dbUri)
+// const { dbUri } = require('../config')
+const { db } = require('./db/db')
 
 let app = express()
 
