@@ -3,16 +3,16 @@ const { User } = require('./db')
 const dbTest = (req, res) => {
   console.log(req.body)
   // res.send('hihi')
-  User.sync()
+  User.sync({force: true})
     .then(() => {
-      User.create({
+      return User.create({
         email: req.body.email,
         password: req.body.password,
         feeds: '{}'
       })
     })
     .then(() => {
-      return User.findOne({email: 'name'})
+      return User.findOne({where: {email: 'punch'}})
     })
     .then(user => {
       res.send(user)
