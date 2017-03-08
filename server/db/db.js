@@ -12,7 +12,7 @@ const db = new Sequelize('nevvs', 'n', 'hush',
 )
 
 const User = db.define('user', {
-  email: Sequelize.STRING,
+  email: {type: Sequelize.STRING, unique: true},
   password: Sequelize.STRING,
   feeds: Sequelize.JSON
 })
