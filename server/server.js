@@ -12,6 +12,8 @@ const { dbTest } = require('./db/dbRoutes')
 
 let app = express()
 
+let port = process.env.PORT || 3000
+
 app
   .use(express.static(path.join(__dirname, '../client')))
   .use(bodyParser.json())
@@ -24,7 +26,7 @@ app
   .use(passport.session())
   .use('/auth', dbTest)
   .post('/getFeed', getFeed)
-  .listen(3000, () => { console.log('Server listening on 3k.') })
+  .listen(port, () => { console.log(`Server listening on ${port}`) })
 
 // passport
 //   .use('local-signup', localSignupStrategy)
