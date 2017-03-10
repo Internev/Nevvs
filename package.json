@@ -4,6 +4,7 @@
   "description": "I lub RSS",
   "main": "index.js",
   "scripts": {
+    "start": "node server/server.js",
     "test": "jest",
     "update-test": "npm run test -- -u",
     "refresh-snapshot": "npm test -- --no-cache"

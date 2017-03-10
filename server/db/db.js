@@ -1,15 +1,8 @@
 const Sequelize = require('sequelize')
 
-const db = new Sequelize('nevvs', 'n', 'hush',
-  {host: 'localhost',
-    dialect: 'postgres',
-    pool: {
-      max: 5,
-      min: 0,
-      idle: 10000
-    }
-  }
-)
+const dbUrl = process.env.RDS_CONNECTION_URL || 'postgres://n:hush@localhost/nevvs'
+
+const db = new Sequelize(dbUrl)
 
 const User = db.define('user', {
   email: {type: Sequelize.STRING, unique: true},
